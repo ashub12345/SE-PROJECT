@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: hand.app
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python hand.py
+    envVars:
+      - key: COUCHDB_USER
+        value: admin
+      - key: COUCHDB_PASSWORD
+        value: yourpassword
+      - key: COUCHDB_HOST
+        value: couchdb:5984   # Use internal service name if CouchDB is a Render service
+      - key: COUCH_DB_NAME
+        value: user
