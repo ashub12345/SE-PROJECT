@@ -2,3 +2,4 @@ flask>=2.2,<3.0
 mediapipe>=0.10,<0.11
 opencv-python>=4.5,<5.0
 couchdb>=1.2
+flask_jwt_extended>=4.4.4
