@@ -334,6 +334,7 @@ def verify_otp():
 # import couchdb
 
 # Connect to CouchDB
+COUCHDB_URL = "http://admin:admin123@your-couchdb-host.com:5984/"
 couch = couchdb.Server(COUCH_URL)
 user_db = couch[COUCH_DB_NAME]
 def send_email(to_email, subject, body):
