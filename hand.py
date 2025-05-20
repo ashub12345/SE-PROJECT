@@ -305,6 +305,19 @@ def gesture_recognition(frame, hand_landmarks, pbutton):
 
 
 # CouchDB configuration
+import os
+# import couchdb
+
+COUCHDB_USER = os.environ.get("admin")
+COUCHDB_PASSWORD = os.environ.get("admin123")
+COUCHDB_HOST = os.environ.get("http://couchdb:5984")  # e.g. http://couchdb:5984
+COUCH_DB_NAME = os.environ.get("COUCH_DB_NAME", "mydatabase")
+
+couch = couchdb.Server(f"http://{COUCHDB_USER}:{COUCHDB_PASSWORD}@{COUCHDB_HOST}")
+if COUCH_DB_NAME not in couch:
+    couch.create(COUCH_DB_NAME)
+user_db = couch[COUCH_DB_NAME]
+
 COUCH_URL = "http://admin:admin123@localhost:5984"
 COUCH_DB_NAME = "users"
 def generate_otp(length=6):
